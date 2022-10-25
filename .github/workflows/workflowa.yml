@@ -1,0 +1,17 @@
+name: Workflow A
+
+on: workflow_call
+
+jobs:
+  uploadtheartifact:
+    runs-on: ubuntu-latest
+    steps:
+      - name: upload the artifact
+        run: |
+          mkdir manifest
+          touch manifest/default.xml
+      - name: upload artifact production
+        uses: actions/upload-artifact@v3
+        with:
+          name: manifest
+          path: manifest
